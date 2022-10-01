@@ -4,7 +4,7 @@ import Link from 'next/link'
 interface ButtonProps {
   children: JSX.Element[] | JSX.Element | string
   href?: any
-  type: 'button' | 'submit' | 'reset' | undefined
+  type?: 'button' | 'submit' | 'reset' | undefined
 }
 
 function Button({ children, href, type }: ButtonProps) {
@@ -17,7 +17,7 @@ function Button({ children, href, type }: ButtonProps) {
   }
 
   return (
-    <button className={styles.buttonOutline} type={type}>
+    <button className={styles.buttonOutline} type={type || 'button'}>
       {children}
     </button>
   )

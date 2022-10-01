@@ -6,7 +6,8 @@
     "paths": {
       "@/defs/*": ["defs/*"],
       "@/components/*": ["components/*"],
-      "@/styles/*": ["styles/*"]
+      "@/styles/*": ["styles/*"],
+      "@/helpers/*": ["helpers/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,

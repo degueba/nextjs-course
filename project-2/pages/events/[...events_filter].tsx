@@ -1,3 +1,4 @@
+import ErrorAlert from '@/components/error-alert'
 import EventSearch from '@/components/events/EventSearch'
 import EventsList from '@/components/events/EventsList'
 import styles from '@/styles/events.module.css'
@@ -32,7 +33,7 @@ function EventFiltered() {
       <EventSearch />
 
       {!events.length ? (
-        <p>No events found.</p>
+        <ErrorAlert>No events found.</ErrorAlert>
       ) : (
         <Fragment>
           <h1>
