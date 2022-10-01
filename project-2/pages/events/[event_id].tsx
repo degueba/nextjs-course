@@ -1,22 +1,22 @@
-import EventContent from "@/components/event-detail/event-content";
-import EventLogistics from "@/components/event-detail/event-logistics";
-import EventSummary from "@/components/event-detail/event-summary";
-import { getEventById } from "dummy-data";
-import { useRouter } from "next/router";
-import { EventItemType } from "../../global/events/events";
+import EventContent from '@/components/event-detail/event-content'
+import EventLogistics from '@/components/event-detail/event-logistics'
+import EventSummary from '@/components/event-detail/event-summary'
+import { EventItemType } from '@/defs/events/events'
+import { getEventById } from 'dummy-data'
+import { useRouter } from 'next/router'
 
 function EventDetails() {
-  const { query } = useRouter();
+  const { query } = useRouter()
   const event: EventItemType | undefined = getEventById(
     query.event_id as string
-  );
+  )
 
   if (!event) {
     return (
       <div>
         <h1>There is no event with this ID.</h1>
       </div>
-    );
+    )
   }
 
   return (
@@ -33,7 +33,7 @@ function EventDetails() {
         <p>{event.description}</p>
       </EventContent>
     </div>
-  );
+  )
 }
 
-export default EventDetails;
+export default EventDetails

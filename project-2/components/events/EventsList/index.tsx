@@ -1,5 +1,5 @@
 import EventItem from "@/components/events/EventItem";
-import { EventItemType } from "@/global/events";
+import { EventItemType } from "@/defs/events";
 import styles from "@/styles/eventList.module.css";
 
 interface AppProps {

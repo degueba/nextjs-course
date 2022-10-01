@@ -1,17 +1,26 @@
-import styles from "@/styles/button.module.css";
-import Link from "next/link";
+import styles from '@/styles/button.module.css'
+import Link from 'next/link'
 
 interface ButtonProps {
-  children: JSX.Element[] | JSX.Element | string;
-  href: any;
+  children: JSX.Element[] | JSX.Element | string
+  href?: any
+  type: 'button' | 'submit' | 'reset' | undefined
 }
 
-function Button({ children, href }: ButtonProps) {
+function Button({ children, href, type }: ButtonProps) {
+  if (href) {
+    return (
+      <Link href={href}>
+        <a className={styles.button}>{children}</a>
+      </Link>
+    )
+  }
+
   return (
-    <Link href={href}>
-      <a className={styles.button}>{children}</a>
-    </Link>
-  );
+    <button className={styles.buttonOutline} type={type}>
+      {children}
+    </button>
+  )
 }
 
-export default Button;
+export default Button

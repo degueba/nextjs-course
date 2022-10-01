@@ -1,5 +1,5 @@
 import Button from "@/components/ui/button";
-import { EventItemType } from "@/global/events";
+import { EventItemType } from "@/defs/events";
 import styles from "@/styles/eventItem.module.css";
 import Image from "next/image";
 

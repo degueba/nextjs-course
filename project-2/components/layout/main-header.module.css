@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #101210;
+  padding: 0.875em 2em;
+  max-height: 80px;
+  color: aquamarine;
+}
+
+.logo {
+  font-size: 2em;
+}
+
+.navigation ul {
+  list-style: none;
+}

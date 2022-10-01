@@ -7,7 +7,6 @@ function Main() {
 
   return (
     <div className={styles.home}>
-      <h1>Main Page</h1>
       <EventsList events={featuredEvents} />
     </div>
   );
