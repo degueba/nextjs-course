@@ -30,6 +30,7 @@ export const BadgeGeneralStyles = css`
   gap: 8px;
   font-size: 14px;
   padding: 2px 12px 2px 8px;
+  max-height: 24px;
   font-weight: 500;
   box-sizing: border-box;
   background: ${(props) =>
@@ -39,8 +40,11 @@ export const BadgeGeneralStyles = css`
     c_gray_800};
 
   &::before {
+    display: flex;
+    align-items: center;
     content: '${(props) => (!props.disableBulletPoint ? '•' : '')}';
     color: ${(props) => handleColorVariation(props.statusColor, 'bullet')};
+    font-size: 1.52em;
   }
 `
 
