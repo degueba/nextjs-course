@@ -2,6 +2,7 @@ import Link from 'next/link'
 import {
   StyledButtonDefault,
   StyledButtonOutlined,
+  StyledButtonPlain,
   StyledButtonPrimary,
   StyledButtonSlim,
 } from './style'
@@ -16,6 +17,7 @@ type Props = {
   target?: string
   href?: string
   to?: string | To
+  status?: 'success' | 'warning' | 'error'
   children: React.ReactNode
   disabled?: boolean
   isLoading?: boolean
@@ -52,3 +54,6 @@ export const ButtonSlim = (props: Props) =>
 
 export const ButtonOutlined = (props: Props) =>
   handleLinkWrapping(StyledButtonOutlined, props)
+
+export const ButtonPlain = (props: Props) =>
+  handleLinkWrapping(StyledButtonPlain, props)

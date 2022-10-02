@@ -1,5 +1,6 @@
 import {
   ButtonDefault,
+  ButtonPlain,
   ButtonPrimary,
   ButtonSlim,
 } from '@/components/ui/button/index'
@@ -10,6 +11,7 @@ import styles from './styles.module.css'
 
 export const CategoryGroup = styled.div`
   display: flex;
+  align-items: center;
   gap: 10px;
   margin-bottom: 1em;
 
@@ -27,12 +29,14 @@ function DesignSystem() {
   return (
     <div>
       <h1 style={{ textAlign: 'center' }}>Locke Bio Design System</h1>
+
+      {/* BUTTONS */}
       <div className={styles.box}>
         <h1>Buttons</h1>
         <CategoryGroup>
           <h2>Default</h2>
           <CategoryGroupComponents>
-            <ButtonDefault disabled={true}>Disabled</ButtonDefault>
+            <ButtonDefault disabled={true}>Button</ButtonDefault>
             <ButtonDefault>Button</ButtonDefault>
             <ButtonDefault>
               <span className="icon material-icons">face</span>
@@ -48,7 +52,7 @@ function DesignSystem() {
           <h2>Large</h2>
           <CategoryGroupComponents>
             <ButtonDefault disabled={true} size={'large'}>
-              Disabled
+              Button
             </ButtonDefault>
             <ButtonDefault disabled={true}>
               Button
@@ -85,9 +89,31 @@ function DesignSystem() {
             <ButtonOutlined>Button</ButtonOutlined>
           </CategoryGroupComponents>
         </CategoryGroup>
+        <CategoryGroup>
+          <h2>Plain</h2>
+          <CategoryGroupComponents>
+            <ButtonPlain disabled>Button</ButtonPlain>
+            <ButtonPlain>Button</ButtonPlain>
+          </CategoryGroupComponents>
+        </CategoryGroup>
+        <CategoryGroup>
+          <h2>Statuses</h2>
+          <CategoryGroupComponents>
+            <ButtonPlain status="success">Button</ButtonPlain>
+            <ButtonDefault status="success">Button</ButtonDefault>
+            <ButtonDefault status="warning">Button</ButtonDefault>
+            <ButtonDefault status="error">Button</ButtonDefault>
+          </CategoryGroupComponents>
+        </CategoryGroup>
       </div>
+
+      {/* TITLES */}
       <div className={styles.box}>
         <h1>Titles</h1>
+        <CategoryGroup>
+          <h2>Outlined</h2>
+          <CategoryGroupComponents></CategoryGroupComponents>
+        </CategoryGroup>
       </div>
     </div>
   )

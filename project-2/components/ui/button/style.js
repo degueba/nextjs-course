@@ -1,12 +1,22 @@
+import { tint } from '@/helpers/tint'
 import {
+  c_error,
   c_gray_100,
   c_gray_300,
   c_gray_700,
   c_gray_900,
+  c_success,
+  c_warning,
   c_white,
 } from '@/styles/colors'
 import Link from 'next/link'
 import styled, { css } from 'styled-components'
+
+const STATUS = {
+  success: c_success,
+  warning: c_warning,
+  error: c_error,
+}
 
 function ButtonSize(size) {
   switch (size) {
@@ -16,10 +26,11 @@ function ButtonSize(size) {
     case 'large':
       return '0.75em 1.25em 0.75em 1.5em'
     default:
-      return '0.5em 1em'
+      return '0.572em 1em'
   }
 }
 
+/* Common Style */
 export const ButtonGeneralStyles = css`
   display: flex;
   flex-direction: row;
@@ -27,15 +38,28 @@ export const ButtonGeneralStyles = css`
   align-items: center;
   gap: 8px;
   min-width: 79px;
-  min-height: 36px;
+  min-height: 32px;
+  height: auto;
   box-sizing: border-box;
   border: none;
-  background: ${c_white};
+  background: ${(props) => {
+    if (props.status) {
+      return tint(STATUS[props.status], 5)
+    }
+
+    return props.background || c_white
+  }};
   outline: 1px solid ${c_gray_300};
   box-shadow: 0px 1px 2px rgba(48, 49, 151, 0.05);
   border-radius: 8px;
   padding: ${(props) => ButtonSize(props.size)};
-  color: ${c_gray_900};
+  color: ${(props) => {
+    if (props.status) {
+      return tint(STATUS[props.status], -30)
+    }
+
+    return props.background || c_gray_900
+  }};
   font-style: normal;
   font-weight: 600;
   font-size: 0.875em;
@@ -93,12 +117,13 @@ export const StyledButtonPrimary = styled.button`
 `
 
 export const StyledButtonSlim = styled.button`
-  ${ButtonGeneralStyles}
+  ${ButtonGeneralStyles};
   padding: ${ButtonSize('small')};
   max-height: 32px;
 `
+
 export const StyledButtonOutlined = styled.button`
-  ${ButtonGeneralStyles}
+  ${ButtonGeneralStyles};
   outline-color: ${c_gray_900};
 
   &:hover {
@@ -109,5 +134,26 @@ export const StyledButtonOutlined = styled.button`
   &:active {
     color: ${c_white};
     background: ${c_gray_700};
+  }
+`
+
+export const StyledButtonPlain = styled.button`
+  ${ButtonGeneralStyles};
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+
+  &:hover {
+    outline: none;
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: ${(props) => props.theme.colors.dark};
+  }
+
+  &[disabled] {
+    background: none;
   }
 `
