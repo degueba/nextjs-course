@@ -1,13 +1,30 @@
 import {
   ButtonDefault,
+  ButtonOutlined,
   ButtonPlain,
   ButtonPrimary,
   ButtonSlim,
 } from '@/components/ui/button/index'
+import { Title } from '@/components/ui/titles'
 import { c_blue } from '@/styles/colors'
 import styled from 'styled-components'
-import { ButtonOutlined } from '../../components/ui/button/index'
-import styles from './styles.module.css'
+
+export const DesignSystemWrapper = styled.div`
+  font-family: ${(props) => props.theme.fontFamily || 'Open Sans'};
+  font-size: 14px;
+`
+export const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #303197;
+  margin-bottom: 2em;
+  box-shadow: 0px 1px 2px rgba(48, 49, 151, 0.05);
+  max-width: 1200px;
+  margin: 20px auto;
+`
 
 export const CategoryGroup = styled.div`
   display: flex;
@@ -15,23 +32,31 @@ export const CategoryGroup = styled.div`
   gap: 10px;
   margin-bottom: 1em;
 
-  > h2 {
+  > h2:first-child {
     width: 100px;
     color: ${c_blue};
+    font-size: 1em;
+    margin-right: 20px;
+
+    &::after {
+      content: ':';
+    }
   }
 `
+
 export const CategoryGroupComponents = styled.div`
   display: flex;
   gap: 10px;
+  align-items: center;
 `
 
 function DesignSystem() {
   return (
-    <div>
+    <DesignSystemWrapper>
       <h1 style={{ textAlign: 'center' }}>Locke Bio Design System</h1>
 
       {/* BUTTONS */}
-      <div className={styles.box}>
+      <Box>
         <h1>Buttons</h1>
         <CategoryGroup>
           <h2>Default</h2>
@@ -105,17 +130,86 @@ function DesignSystem() {
             <ButtonDefault status="error">Button</ButtonDefault>
           </CategoryGroupComponents>
         </CategoryGroup>
-      </div>
+      </Box>
 
       {/* TITLES */}
-      <div className={styles.box}>
+      <Box>
         <h1>Titles</h1>
         <CategoryGroup>
-          <h2>Outlined</h2>
-          <CategoryGroupComponents></CategoryGroupComponents>
+          <h2>Headline 1</h2>
+          <CategoryGroupComponents>
+            <Title size={'extra-large'}>Title</Title>
+            <Title size={'extra-large'} fontWeight={'bold'}>
+              Title
+            </Title>
+          </CategoryGroupComponents>
         </CategoryGroup>
-      </div>
-    </div>
+        <CategoryGroup>
+          <h2>Headline 2</h2>
+          <CategoryGroupComponents>
+            <Title size={'large'}>Title</Title>
+            <Title size={'large'} fontWeight={'bold'}>
+              Title
+            </Title>
+          </CategoryGroupComponents>
+        </CategoryGroup>
+        <CategoryGroup>
+          <h2>Subtitle 1</h2>
+          <CategoryGroupComponents>
+            <Title size={'small-large'}>Title</Title>
+            <Title size={'small-large'} fontWeight={'bold'}>
+              Title
+            </Title>
+          </CategoryGroupComponents>
+        </CategoryGroup>
+        <CategoryGroup>
+          <h2>Subtitle 2</h2>
+          <CategoryGroupComponents>
+            <Title size={'large-medium'}>Title</Title>
+            <Title size={'large-medium'} fontWeight={'bold'}>
+              Title
+            </Title>
+          </CategoryGroupComponents>
+        </CategoryGroup>
+        <CategoryGroup>
+          <h2>Body 1</h2>
+          <CategoryGroupComponents>
+            <Title size={'medium'}>Title</Title>
+            <Title size={'medium'} fontWeight={'bold'}>
+              Title
+            </Title>
+          </CategoryGroupComponents>
+        </CategoryGroup>
+        <CategoryGroup>
+          <h2>Body 2</h2>
+          <CategoryGroupComponents>
+            <Title>Title</Title>
+            <Title fontWeight={'bold'}>Title</Title>
+          </CategoryGroupComponents>
+        </CategoryGroup>
+        <CategoryGroup>
+          <h2>Caption</h2>
+          <CategoryGroupComponents>
+            <Title size={'small'}>Title</Title>
+            <Title size={'small'} fontWeight={'bold'}>
+              Title
+            </Title>
+          </CategoryGroupComponents>
+        </CategoryGroup>
+        <CategoryGroup>
+          <h2>As</h2>
+          <Title as={'h1'}>H1</Title>
+          <Title as={'h2'}>H2</Title>
+          <Title as={'h3'}>H3</Title>
+          <Title as={'h4'}>H4</Title>
+          <Title as={'h5'}>H5</Title>
+          <Title as={'h6'}>H6</Title>
+          <Title as={'span'}>SPAN</Title>
+          <Title as={'p'}>P</Title>
+          <Title as={'small'}>SMALL</Title>
+        </CategoryGroup>
+      </Box>
+    </DesignSystemWrapper>
   )
 }
 

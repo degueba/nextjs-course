@@ -18,15 +18,15 @@ const STATUS = {
   error: c_error,
 }
 
-function ButtonSize(size) {
+function handleButtonSize(size) {
   switch (size) {
     case 'small':
     case 'slim':
       return '0.375em 1em'
     case 'large':
-      return '0.75em 1.25em 0.75em 1.5em'
+      return '0.875em 1.95em'
     default:
-      return '0.572em 1em'
+      return '0.654em 1em'
   }
 }
 
@@ -52,7 +52,7 @@ export const ButtonGeneralStyles = css`
   outline: 1px solid ${c_gray_300};
   box-shadow: 0px 1px 2px rgba(48, 49, 151, 0.05);
   border-radius: 8px;
-  padding: ${(props) => ButtonSize(props.size)};
+  padding: ${(props) => handleButtonSize(props.size)};
   color: ${(props) => {
     if (props.status) {
       return tint(STATUS[props.status], -30)
@@ -118,7 +118,7 @@ export const StyledButtonPrimary = styled.button`
 
 export const StyledButtonSlim = styled.button`
   ${ButtonGeneralStyles};
-  padding: ${ButtonSize('small')};
+  padding: ${handleButtonSize('small')};
   max-height: 32px;
 `
 
