@@ -1,3 +1,4 @@
+import { Badge } from '@/components/ui/badges'
 import {
   ButtonDefault,
   ButtonOutlined,
@@ -48,6 +49,7 @@ export const CategoryGroupComponents = styled.div`
   display: flex;
   gap: 10px;
   align-items: center;
+  flex-wrap: wrap;
 `
 
 function DesignSystem() {
@@ -207,6 +209,40 @@ function DesignSystem() {
           <Title as={'span'}>SPAN</Title>
           <Title as={'p'}>P</Title>
           <Title as={'small'}>SMALL</Title>
+        </CategoryGroup>
+      </Box>
+
+      {/* Badges */}
+      <Box>
+        <h1>Badges</h1>
+        <CategoryGroup>
+          <h2>By StatusColor</h2>
+          <CategoryGroupComponents>
+            <Badge statusColor="blue">Prescription pending</Badge>
+            <Badge statusColor="green">Prescription issued</Badge>
+            <Badge statusColor="red">Prescription cancelled</Badge>
+            <Badge statusColor="yellow">Prescription expired</Badge>
+            <Badge statusColor="purple">In review</Badge>
+            <Badge statusColor="indigo">Modified 2 days ago</Badge>
+            <Badge statusColor="pink">Badge</Badge>
+            <Badge>Badge</Badge>
+            <Badge statusColor="blue" disableBulletPoint={true}>
+              Badge
+            </Badge>
+            <Badge statusColor="green" disableBulletPoint={true}>
+              Badge
+            </Badge>
+          </CategoryGroupComponents>
+        </CategoryGroup>
+        <CategoryGroup>
+          <h2>By Status</h2>
+          <CategoryGroupComponents>
+            <Badge status={'info'}>Badge</Badge>
+            <Badge status={'success'}>Badge</Badge>
+            <Badge status={'error'}>Badge</Badge>
+            <Badge status={'warning'}>Badge</Badge>
+            <Badge status={'default'}>Badge</Badge>
+          </CategoryGroupComponents>
         </CategoryGroup>
       </Box>
     </DesignSystemWrapper>

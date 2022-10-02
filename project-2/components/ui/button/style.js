@@ -9,6 +9,8 @@ import {
   c_warning,
   c_white,
 } from '@/styles/colors'
+import { shadow_sm } from '@/styles/shadows'
+
 import Link from 'next/link'
 import styled, { css } from 'styled-components'
 
@@ -50,12 +52,12 @@ export const ButtonGeneralStyles = css`
     return props.background || c_white
   }};
   outline: 1px solid ${c_gray_300};
-  box-shadow: 0px 1px 2px rgba(48, 49, 151, 0.05);
+  box-shadow: ${shadow_sm};
   border-radius: 8px;
   padding: ${(props) => handleButtonSize(props.size)};
   color: ${(props) => {
     if (props.status) {
-      return tint(STATUS[props.status], -30)
+      return tint(STATUS[props.status], -60)
     }
 
     return props.background || c_gray_900
