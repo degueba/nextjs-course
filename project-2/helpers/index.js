@@ -1,3 +1,4 @@
+import { handleColorVariation } from './handleColorVariation'
 import { tint } from './tint'
 
-export { tint }
+export { tint, handleColorVariation }

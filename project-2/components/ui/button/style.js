@@ -1,24 +1,14 @@
-import { tint } from '@/helpers/tint'
+import { handleColorVariation } from '@/helpers/index'
 import {
-  c_error,
   c_gray_100,
   c_gray_300,
   c_gray_700,
   c_gray_900,
-  c_success,
-  c_warning,
   c_white,
 } from '@/styles/colors'
 import { shadow_sm } from '@/styles/shadows'
-
 import Link from 'next/link'
 import styled, { css } from 'styled-components'
-
-const STATUS = {
-  success: c_success,
-  warning: c_warning,
-  error: c_error,
-}
 
 function handleButtonSize(size) {
   switch (size) {
@@ -46,7 +36,7 @@ export const ButtonGeneralStyles = css`
   border: none;
   background: ${(props) => {
     if (props.status) {
-      return tint(STATUS[props.status], 5)
+      return handleColorVariation(props.status)
     }
 
     return props.background || c_white
@@ -57,7 +47,7 @@ export const ButtonGeneralStyles = css`
   padding: ${(props) => handleButtonSize(props.size)};
   color: ${(props) => {
     if (props.status) {
-      return tint(STATUS[props.status], -60)
+      return handleColorVariation(props.status, 'color')
     }
 
     return props.background || c_gray_900
